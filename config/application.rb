@@ -2,6 +2,15 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
+# Require Single File for Services Folder
+#  require './app/services/chapter2/Gear.rb'
+#  require './lib/Logic.rb'
+
+#Required all the File Once of the Folder
+# Dir["./app/services/chapter2/*.rb"].each {|file| require file }
+Dir["./app/services/**/*.rb"].sort.each {|file| require file } #incldue all the Folders and Sub folders as well
+Dir["./lib/*.rb"].sort.each {|file| require file }
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
@@ -22,6 +31,6 @@ module Campaigns
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.eager_load_paths << Rails.root.join('lib')
-    config.active_record.raise_in_transactional_callbacks = true
+    # config.active_record.raise_in_transactional_callbacks = true
   end
 end
