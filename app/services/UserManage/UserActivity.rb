@@ -11,10 +11,10 @@ end
 
 # When Call from console or Some other Palace User this to Required
 # or Put in the Application.rb file to To load at Run time
-# require './app/services/chapter2/Gear.rb'
+# require './app/services/chapter2/UserActivity.rb'
 
-puts UserActivity.new(52, 11).ratio
-puts UserActivity.new(30, 27).ratio
+# puts UserActivity.new(52, 11).ratio
+# puts UserActivity.new(30, 27).ratio
 # -> 4.72727272727273
 # -> 1.11111111111111
 #
