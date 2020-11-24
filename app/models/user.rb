@@ -4,7 +4,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   belongs_to :role
-
   has_many :campaigns, dependent: :destroy
+  validates :name, presence: true
+  before_save :assign_role
+
+  def assign_role
+    self.role = Role.find_by name: 'Regular' if role.nil?
+  end
 
 end
