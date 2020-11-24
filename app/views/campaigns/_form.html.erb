@@ -28,7 +28,10 @@
 
   <div class="field">
     <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
+    <%#= form.text_field :user_id %>
+    <%= collection_select(
+            :campaign, :user_id, User.all, :id, :name, { prompt: true }
+        ) %>
   </div>
 
   <div class="actions">
