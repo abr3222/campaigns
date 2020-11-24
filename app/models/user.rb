@@ -8,6 +8,10 @@ class User < ApplicationRecord
   validates :name, presence: true
   before_save :assign_role
 
+  def admin?
+    role.name == 'Admin'
+  end
+
   def assign_role
     self.role = Role.find_by name: 'Regular' if role.nil?
   end

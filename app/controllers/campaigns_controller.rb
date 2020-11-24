@@ -26,7 +26,7 @@ class CampaignsController < ApplicationController
   # POST /campaigns.json
   def create
     @campaign = Campaign.new(campaign_params)
-    #Set the Auto with the User Sign in
+    #Set the User Id So Not Need to pass from the FRONT END Side at the Time of
     @campaign.user_id = current_user.id
 
     respond_to do |format|
