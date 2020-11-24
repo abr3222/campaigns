@@ -1,4 +1,5 @@
 class CampaignsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_campaign, only: [:show, :edit, :update, :destroy]
 
   # GET /campaigns
@@ -25,6 +26,8 @@ class CampaignsController < ApplicationController
   # POST /campaigns.json
   def create
     @campaign = Campaign.new(campaign_params)
+    #Set the Auto with the User Sign in
+    @campaign.user_id = current_user.id
 
     respond_to do |format|
       if @campaign.save

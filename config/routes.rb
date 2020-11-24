@@ -1,6 +1,16 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :campaigns
-  resources :users
+
+  # devise_for :users
+
+  scope '/admin' do
+    resources :users
+  end
+
   resources :roles
+
+  root to: 'campaigns#index'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
