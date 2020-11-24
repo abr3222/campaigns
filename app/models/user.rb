@@ -12,6 +12,14 @@ class User < ApplicationRecord
     role.name == 'Admin'
   end
 
+  def seller?
+    role.name == 'Seller'
+  end
+
+  def regular?
+    role.name == 'Regular'
+  end
+
   def assign_role
     self.role = Role.find_by name: 'Regular' if role.nil?
   end

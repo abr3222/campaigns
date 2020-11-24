@@ -7,4 +7,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
     devise_parameter_sanitizer.permit(:account_update, keys: [:name])
   end
+
+  # rescue_from CanCan::AccessDenied do
+  #   flash[:error] = 'Access denied!'
+  #
+  #   redirect_to root_url     # also Can be redirect to any other Page Desgin with the ERROR
+  # end
 end
