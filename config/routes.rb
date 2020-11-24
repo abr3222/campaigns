@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'home/index'
+
   devise_for :users
   resources :campaigns
 
@@ -8,8 +9,6 @@ Rails.application.routes.draw do
   scope '/admin' do
     resources :users
   end
-
-
 
   resources :roles
 

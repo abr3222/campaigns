@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable,:trackable, :validatable
   belongs_to :role
-  has_many :campaigns, dependent: :destroy
+  has_many :campaigns #, dependent: :destroy
   validates :name, presence: true
   before_save :assign_role
 
