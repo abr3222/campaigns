@@ -2,6 +2,9 @@ require_relative 'boot'
 
 require 'rails/all'
 
+Dir["./app/services/**/*.rb"].sort.each {|file| require file } #incldue all the Folders and Sub folders as well
+Dir["./lib/*.rb"].sort.each {|file| require file }
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
