@@ -5,7 +5,7 @@ ruby '2.4.7'
 gem 'devise'
 
 gem 'cancancan'
-
+gem 'faker'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4'
 # Use mysql as the database for Active Record
