@@ -2,7 +2,14 @@ Rails.application.routes.draw do
   get 'home/index'
 
   devise_for :users
-  resources :campaigns
+  resources :campaigns do
+    resources :todo_items do
+      member do
+        # patch :complete
+        get :complete
+      end
+    end
+  end
 
   # devise_for :users
 

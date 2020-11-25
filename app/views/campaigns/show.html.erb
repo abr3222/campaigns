@@ -20,5 +20,12 @@
   <%= @campaign.user %>
 </p>
 
+<div id="todo_items_wrapper">
+  <%= render @campaign.todo_items %>
+  <div id="form">
+    <%= render "todo_items/form" %>
+  </div>
+</div>
+
 <%= link_to 'Edit', edit_campaign_path(@campaign) %> |
 <%= link_to 'Back', campaigns_path %>

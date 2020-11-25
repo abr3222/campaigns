@@ -1,6 +1,8 @@
 class Campaign < ApplicationRecord
   include Filterable
 
+  has_many :todo_items
+
   belongs_to :user
 
   scope :filter_by_title, -> (title) { where("title like ?", "#{title}%")}

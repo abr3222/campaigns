@@ -11,7 +11,6 @@ class CampaignsController < ApplicationController
 
 
 
-
   end
 
   # GET /campaigns/1
@@ -34,6 +33,10 @@ class CampaignsController < ApplicationController
     # binding.pry
     @campaign = Campaign.new(campaign_params)
     #Set the User Id So Not Need to pass from the FRONT END Side at the Time of
+    #
+
+    # TodoItem.create(content:"YahoooO Value", campaign_id: 1)
+
     @campaign.user_id = current_user.id
 
     respond_to do |format|

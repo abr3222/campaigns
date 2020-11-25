@@ -11,6 +11,7 @@ gem 'better_errors', '~> 2.1', '>= 2.1.1'
 gem "binding_of_caller"
 gem 'pry-byebug'
 gem 'simple_form'
+gem 'nested_form_fields'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4'
 # Use mysql as the database for Active Record
