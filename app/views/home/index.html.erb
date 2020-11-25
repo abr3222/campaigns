@@ -1,8 +1,19 @@
-<h1>Welcome to the Campaigns</h1>
-<h2>Can be Search here all the Campaigns by Name Tags , Sub Tags </h2>
-<p>
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci
-  eveniet, repellat quae sed hic obcaecati nam exercitationem saepe
-  quod totam dolore explicabo culpa iure deserunt? Dignissimos, fuga,
-  adipisci. Temporibus, aliquid.
-</p>
+<%= simple_form_for :search, url: root_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+  <%= f.input :name, input_html: {value: ""} %>
+  <%= f.submit "Search", class: "btn btn-primary" %>
+<% end %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 offset-sm-2">
+      <%if not @campaigns.blank? %>
+      <h1>Cocktails</h1>
+      <% @campaigns.each do |campaign| %>
+        <h3><%= campaign.title %></h3>
+        <p><%= campaign.purpose %></p>
+      <% end %>
+      <% end %>
+   </div>
+  </div>
+</div>
+
