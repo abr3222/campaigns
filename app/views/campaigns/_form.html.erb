@@ -21,10 +21,18 @@
     <%= form.text_area :purpose %>
   </div>
 
-  <div class="field">
-    <%= form.label :estimated_duration %>
-    <%= form.number_field :estimated_duration %>
-  </div>
+    <div class="field">
+      <%#= select_tag :estimated_duration, options_for_select(Campaign.estimated_durations.map {|k, v| [k.humanize.capitalize, v]}) %>
+      <%#= select_tag :estimated_duration, options_for_select(Campaign.estimated_durations) %>
+
+      <%= form.select :estimated_duration, options_for_select(Campaign.estimated_durations.map {|key, value| [key.capitalize, value]}, @user) %>
+    </div>
+
+
+
+  <%#= form.label :estimated_duration %>
+    <%#= form.number_field :estimated_duration %>
+
 
   <div class="field">
     <%= form.label :user_id %>

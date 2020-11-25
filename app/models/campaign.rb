@@ -9,6 +9,8 @@ class Campaign < ApplicationRecord
   scope :filter_by_purpose, -> (purpose) { where purpose: purpose }
   scope :filter_by_estimated_duration, -> (estimated_duration) { where estimated_duration: estimated_duration }
 
+  # enum estimated_duration: ["1_week", "within_1_month", "within_3_months"]
+  enum estimated_duration: [ :one_week, :within_1_month, :within_3_months]
   # @campaign = Campaign.filter_by_user_id(2).filter_by_title("SDF")
   #
 end

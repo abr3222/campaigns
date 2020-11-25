@@ -1,6 +1,7 @@
 class CampaignsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_campaign, only: [:show, :edit, :update, :destroy]
+  before_action :estimated_duration_to_i , only: [:update , :create]
 
   # GET /campaigns
   # GET /campaigns.json
@@ -26,6 +27,7 @@ class CampaignsController < ApplicationController
   # POST /campaigns
   # POST /campaigns.json
   def create
+    # binding.pry
     @campaign = Campaign.new(campaign_params)
     #Set the User Id So Not Need to pass from the FRONT END Side at the Time of
     @campaign.user_id = current_user.id
@@ -45,6 +47,7 @@ class CampaignsController < ApplicationController
   # PATCH/PUT /campaigns/1.json
   def update
     respond_to do |format|
+
       if @campaign.update(campaign_params)
         format.html { redirect_to @campaign, notice: 'Campaign was successfully updated.' }
         format.json { render :show, status: :ok, location: @campaign }
@@ -64,14 +67,17 @@ class CampaignsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
   private
-    # Use callbacks to share common setup or constraints between actions.
+  # Use callbacks to share common setup or constraints between actions.
     def set_campaign
       @campaign = Campaign.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
+    def estimated_duration_to_i
+      params["campaign"]["estimated_duration"] = params["campaign"]["estimated_duration"].to_i
+    end
+
+  # Only allow a list of trusted parameters through.
     def campaign_params
       params.require(:campaign).permit(:title, :purpose, :estimated_duration, :user_id)
     end
