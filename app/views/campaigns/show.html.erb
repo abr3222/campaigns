@@ -1,14 +1,17 @@
 <!--<p id="notice"><%#= notice %></p>-->
 
-<p>
-  <strong>Title:</strong>
-  <%= @campaign.title %>
-</p>
+<!--<p>-->
+<!--  <strong>Title:</strong>-->
+  <%#= @campaign.title %>
+<!--</p>-->
 
-<p>
-  <strong>Purpose:</strong>
-  <%= @campaign.purpose %>
-</p>
+<!--<p>-->
+<!--  <strong>Purpose:</strong>-->
+  <%#= @campaign.purpose %>
+<!--</p>-->
+
+<h2 class="todo_list_title"><%= @campaign.title %></h2>
+<p class="todo_list_sub_title"><%= @campaign.purpose %></p>
 
 <p>
   <strong>Estimated duration:</strong>
@@ -20,6 +23,9 @@
   <%= @campaign.user %>
 </p>
 
+
+
+
 <div id="todo_items_wrapper">
   <%= render @campaign.todo_items %>
   <div id="form">
@@ -27,5 +33,7 @@
   </div>
 </div>
 
+<div class="links">
 <%= link_to 'Edit', edit_campaign_path(@campaign) %> |
 <%= link_to 'Back', campaigns_path %>
+</div>

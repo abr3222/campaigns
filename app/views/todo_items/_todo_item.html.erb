@@ -1,7 +1,12 @@
 <div class="row clearfix">
   <% if todo_item.completed? %>
     <div class="complete">
-      <%= link_to "Mark as Complete", complete_campaign_todo_item_path(@campaign, todo_item.id), method: :patch %>
+      <%#= link_to "Mark as Complete", complete_campaign_todo_item_path(@campaign, todo_item.id), method: :patch %>
+
+      <%= link_to complete_campaign_todo_item_path(@campaign, todo_item.id), method: :patch do %>
+        <i style="opacity: 0.4;" class="fa fa-check"></i>
+      <% end %>
+
     </div>
     <div class="todo_item">
       <p style="opacity: 0.4;"><strike><%= todo_item.content %></strike></p>
@@ -11,7 +16,10 @@
     </div>
   <% else %>
     <div class="complete">
-      <%= link_to "Mark as Complete", complete_campaign_todo_item_path(@campaign, todo_item.id), method: :patch %>
+      <%#= link_to "Mark as Complete", complete_campaign_todo_item_path(@campaign, todo_item.id), method: :patch %>
+      <%= link_to complete_campaign_todo_item_path(@campaign, todo_item.id), method: :patch do %>
+        <i class="fa fa-circle-thin"></i>
+      <% end %>
     </div>
     <div class="todo_item">
       <p><%= todo_item.content %></p>
