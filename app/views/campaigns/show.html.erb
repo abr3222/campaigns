@@ -23,9 +23,6 @@
   <%= @campaign.user.name %>
 </p>
 
-
-
-
 <div id="todo_items_wrapper">
   <%= render @campaign.todo_items %>
   <div id="form">
@@ -33,6 +30,19 @@
   </div>
 </div>
 
+<br><br><br><br>
+<section class="section comments">
+  <div class="container">
+    <h2 class="subtitle is-5"><strong><%= @campaign.comments.count %></strong> Comments</h2>
+    <%= render @campaign.comments %>
+    <div class="comment-form">
+      <hr />
+      <h3 class="subtitle is-3">Leave a reply</h3>
+      <%= render 'comments/form' %>
+    </div>
+  </div>
+</section>
+<h3> Comments :- </h3>
 <div class="links">
 <%= link_to 'Edit', edit_campaign_path(@campaign) %> |
 <%= link_to 'Back', campaigns_path %>

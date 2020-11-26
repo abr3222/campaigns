@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :campaigns do
+    resources :comments
     resources :todo_items do
       member do
         # patch :complete

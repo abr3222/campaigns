@@ -10,7 +10,8 @@
       <th>Estimated duration</th>
       <th>User ID</th>
       <th>User Name </th>
-      <th colspan="3"></th>
+      <th>ToDo Items</th>
+      <th colspan="3"> </th>
     </tr>
   </thead>
 
@@ -22,6 +23,7 @@
         <td><%= campaign.estimated_duration %></td>
         <td><%= campaign.user.id %></td>
         <td><%= campaign.user.name %></td>
+        <td><%= campaign.todo_items.count %></td>
         <td><%= link_to 'Show', campaign %></td>
         <td><%= link_to 'Edit', edit_campaign_path(campaign) %></td>
         <td><%= link_to 'Destroy', campaign, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -31,5 +33,6 @@
 </table>
 
 <br>
+
 
 <%= link_to 'New Campaign', new_campaign_path %>
