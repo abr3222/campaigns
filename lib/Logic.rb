@@ -2,7 +2,7 @@ class Logic
   # include ApplicationHelper
   #
   def initialize
-    puts "Yahoo RUN and load new Objects "
+    puts "Yahoo RUN and load new Objects Perfectly "
   end
 
   def testing

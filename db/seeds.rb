@@ -17,5 +17,5 @@ u4 = User.create({ name: Faker::Name.name, email: 'abr@example.com', password: '
 
 i1 = Campaign.create({ title: Faker::Company.bs, purpose: Faker::Marketing.buzzwords, estimated_duration: 1, user_id: u2.id })
 i2 = Campaign.create({ title: Faker::Company.bs, purpose: Faker::Marketing.buzzwords, estimated_duration: 2, user_id: u2.id })
-i3 = Campaign.create({ title: Faker::Company.bs, purpose: Faker::Marketing.buzzwords, estimated_duration: 3, user_id: u3.id })
+i3 = Campaign.create({ title: Faker::Company.bs, purpose: Faker::Marketing.buzzwords, estimated_duration: 0, user_id: u3.id })
 i4 = Campaign.create({ title: Faker::Company.bs, purpose: Faker::Marketing.buzzwords, estimated_duration: 1, user_id: u3.id })

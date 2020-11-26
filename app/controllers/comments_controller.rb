@@ -1,7 +1,8 @@
 class CommentsController < ApplicationController
   def create
     @campaign = Campaign.find(params[:campaign_id])
-    @comment = @campaign.comments.create(params[:comment].permit(:name, :comment))
+    # binding.pry
+    @comment = @campaign.comments.create(params[:comment].permit(:name, :comment,:user_id))
     redirect_to campaign_path(@campaign)
   end
 

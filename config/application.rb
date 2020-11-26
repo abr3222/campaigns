@@ -2,6 +2,10 @@ require_relative 'boot'
 
 require 'rails/all'
 
+# Require Single File for Services Folder
+#  require './app/services/chapter2/Gear.rb'
+#  require './lib/Logic.rb'
+
 Dir["./app/services/**/*.rb"].sort.each {|file| require file } #incldue all the Folders and Sub folders as well
 Dir["./lib/*.rb"].sort.each {|file| require file }
 
