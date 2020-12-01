@@ -14,6 +14,7 @@ class HomeController < ApplicationController
         @campaigns = by_tittle + by_tag
       end
 
+
     end
   end
 
