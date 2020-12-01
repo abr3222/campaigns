@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_26_095322) do
+ActiveRecord::Schema.define(version: 2020_12_01_071343) do
 
   create_table "campaigns", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
@@ -36,6 +36,21 @@ ActiveRecord::Schema.define(version: 2020_11_26_095322) do
   create_table "roles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "taggings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "tag_id"
+    t.bigint "campaign_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["campaign_id"], name: "index_taggings_on_campaign_id"
+    t.index ["tag_id"], name: "index_taggings_on_tag_id"
+  end
+
+  create_table "tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -72,6 +87,8 @@ ActiveRecord::Schema.define(version: 2020_11_26_095322) do
   add_foreign_key "campaigns", "users"
   add_foreign_key "comments", "campaigns"
   add_foreign_key "comments", "users"
+  add_foreign_key "taggings", "campaigns"
+  add_foreign_key "taggings", "tags"
   add_foreign_key "todo_items", "campaigns"
   add_foreign_key "users", "roles"
 end

@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   devise_for :users
   resources :campaigns do
     resources :comments
+    get 'tags/:tag', to: 'campaigns#index', as: :tag
+    resources :tags
     resources :todo_items do
       member do
         # patch :complete

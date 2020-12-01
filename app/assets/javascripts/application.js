@@ -16,7 +16,7 @@ require('@rails/activestorage').start();
 require('channels');
 
 require('../src/index');
-
+//= require chosen
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks

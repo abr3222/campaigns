@@ -17,8 +17,11 @@
   <strong>Estimated duration:</strong>
   <%= @campaign.estimated_duration %>
 </p>
+<!--<p><small>Tags: <%#= raw @campaign.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %></small></p>-->
+<a href="#" class="badge badge-secondary">Yes</a>
 
-<p>
+<p><small>Tags: <%= raw @campaign.tags.map(&:name).map { |t| t }.join(', ') %></small></p>
+  <p>
   <strong>User:</strong>
   <%= @campaign.user.name %>
 </p>
