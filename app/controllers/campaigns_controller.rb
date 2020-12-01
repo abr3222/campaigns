@@ -17,8 +17,17 @@ class CampaignsController < ApplicationController
     # binding.pry
     if params[:search].blank?
       redirect_to(root_path, alert: "Empty field!") and return
+
     else
-      @results = Campaign.first(2)
+      by_tittle  = Campaign.filter_by_title(params[:search])
+      by_tag =Campaign.tagged_with(params[:search])
+      # binding.pry
+      if by_tag.nil?
+        @results = by_tittle
+      else
+        @results = (by_tittle + by_tag).uniq
+      end
+      # binding.pry
     end
   end
 

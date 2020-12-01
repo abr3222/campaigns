@@ -1,6 +1,13 @@
+<center>
+
 <h3>Search Result</h3>
 
 <% @results.each do |result| %>
-  <h3><%= result.title %></h3>
-  <p><%= result.purpose %></p>
+
+  <hr>
+  <h6>ID : <%= result.id %> , Title :  <%= result.title %> ,
+
+    <p>  <%= result.purpose %></h6> </p>
 <% end %>
+
+</center>
