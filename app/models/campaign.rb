@@ -19,8 +19,11 @@ class Campaign < ApplicationRecord
   enum estimated_duration: [ :one_week, :within_1_month, :within_3_months]
   # @campaign = Campaign.filter_by_user_id(2).filter_by_title("SDF")
 
+
   def self.tagged_with(name)
-    Tag.find_by!(name: name).campaigns
+    if Tag.exists?(name: name)
+      Tag.find_by!(name: name).campaigns
+    end
   end
 
   def self.tag_counts
