@@ -1,29 +1,28 @@
-version: '3'
+version: "3.8"
 services:
-  db:
-    image: mysql:5.7
-    volumes:
-      - ./data/db:/var/lib/mysql
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: campaign_development
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
-
 #  db:
 #    image: mysql
-#    volumes:
-#    - db:/var/lib/mysql
-#    restart: always
+#    command:
+#      - --default-authentication-plugin=mysql_native_password
 #    environment:
-#      MYSQL_DB_HOST: db
-#      MYSQL_ROOT_PASSWORD: root
-#      MYSQL_USER: root
-#      MYSQL_PASSWORD: root
-#      MYSQL_DATABASE: campaign_development
+#      - MYSQL_ROOT_PASSWORD=root
+#      - MYSQL_DATABASE=app_development
 #    ports:
-#      - "3306:33060"
+#      - "3306:3306"
+
+  db:
+    image: mysql
+    volumes:
+    - db:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_DB_HOST: db
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_DATABASE: campaign_development
+    ports:
+      - "3306:3307"
 
   web:
     build: .
@@ -33,16 +32,16 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - RAKE_ENV=development
-      - RAILS_ENV=development
+      - RAKE_ENV=production
+      - RAILS_ENV=production
       - MYSQL_DB_NAME=campaign_development
       - MYSQL_DB_USERNAME=root
       - MYSQL_DB_PASSWORD=root
-      - MYSQL_DB_HOST=db
-#      - MYSQL_DB_HOST_PORT=3306
+#      - MYSQL_DB_HOST=db
+      - MYSQL_DB_HOST_PORT=3306
     links:
       - db
-#
+
 volumes:
   db:
     driver: local

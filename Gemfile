@@ -7,6 +7,8 @@ gem 'devise'
 gem 'cancancan'
 gem 'faker'
 gem 'awesome_print', '~> 1.8'
+gem 'rspec-rails', '~> 4.0.1'
+gem 'dotenv-rails', groups: [:development, :test]
 gem 'better_errors', '~> 2.1', '>= 2.1.1'
 gem "binding_of_caller"
 gem 'pry-byebug'
