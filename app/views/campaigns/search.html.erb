@@ -8,6 +8,7 @@
   <h6>ID : <%= result.id %> , Title :  <%= result.title %> ,
 
     <p>  <%= result.purpose %></h6> </p>
+    <p> Tags <%= result.tags.map{|tag|tag.name} %></p>
 <% end %>
 
 </center>
