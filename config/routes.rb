@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get 'home/index'
 
+  get '/search' => 'campaigns#search', :as => 'search_page'
+
   devise_for :users
   resources :campaigns do
     resources :comments
@@ -25,7 +27,7 @@ Rails.application.routes.draw do
   authenticated :user do
     root to: 'campaigns#index', as: :authenticated_root
   end
-  root to: 'home#index'
+  root to: 'campaigns#index' # Both redirect to same
 
 
 

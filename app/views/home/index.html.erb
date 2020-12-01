@@ -1,13 +1,17 @@
-<%= simple_form_for :search, url: root_path, method: "GET", html: { class: 'form-inline' } do |f| %>
-  <%= f.input :name, input_html: {value: ""} %>
-  <%= f.submit "Search", class: "btn btn-primary" %>
-<% end %>
+
+<div class="col-md-12">
+  <%= simple_form_for :search, url: root_path, method: "GET", html: { novalidate: true , class: 'form-inline col-md-12' } do |f| %>
+  <%= f.input :name, hint: false, input_html: {value: "",class: "form-control mr-sm-2 col-md-12",placeholder:"Search"},label_html: {class: "col-md-12"} %>
+  <%= f.submit "Search", class: "btn btn-outline-success my-2 my-sm-0" %>
+  <% end %>
+</div>
+
+
 
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-8 offset-sm-2">
       <%if not @campaigns.blank? %>
-      <h1>Cocktails</h1>
       <% @campaigns.each do |campaign| %>
         <h3><%= campaign.title %></h3>
         <p><%= campaign.purpose %></p>
@@ -17,3 +21,5 @@
   </div>
 </div>
 
+
+</div>

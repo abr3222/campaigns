@@ -1,5 +1,6 @@
 class CampaignsController < ApplicationController
   before_action :authenticate_user!
+  skip_before_action :authenticate_user! , only: [:search]
   before_action :set_campaign, only: [:show, :edit, :update, :destroy]
   before_action :estimated_duration_to_i , only: [:update , :create]
 
@@ -10,6 +11,15 @@ class CampaignsController < ApplicationController
     @campaigns = Campaign.all
     # @campaigns_by_filer = Campaign.filter(params.slice(:status, :location, :starts_with))
 
+  end
+
+  def search
+    # binding.pry
+    if params[:search].blank?
+      redirect_to(root_path, alert: "Empty field!") and return
+    else
+      @results = Campaign.first(2)
+    end
   end
 
   # GET /campaigns/1

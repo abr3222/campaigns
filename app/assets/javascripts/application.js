@@ -17,6 +17,7 @@ require('channels');
 
 require('../src/index');
 //= require jquery
+//= require jquery3
 //= require jquery_ujs
 //= require popper
 //= require tether
