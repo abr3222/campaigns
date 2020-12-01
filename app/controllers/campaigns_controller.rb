@@ -6,10 +6,9 @@ class CampaignsController < ApplicationController
   # GET /campaigns
   # GET /campaigns.json
   def index
-    @campaigns = Campaign.all
+
+    params[:tag] ? @campaigns = Campaign.tagged_with(params[:tag]) :   @campaigns = Campaign.all
     @campaigns_by_filer = Campaign.filter(params.slice(:status, :location, :starts_with))
-
-
 
   end
 

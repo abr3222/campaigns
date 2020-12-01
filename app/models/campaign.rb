@@ -20,7 +20,7 @@ class Campaign < ApplicationRecord
   # @campaign = Campaign.filter_by_user_id(2).filter_by_title("SDF")
 
   def self.tagged_with(name)
-    Tag.find_by!(name: name).posts
+    Tag.find_by!(name: name).campaigns
   end
 
   def self.tag_counts
