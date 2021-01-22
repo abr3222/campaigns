@@ -14,7 +14,7 @@ gem "binding_of_caller"
 gem 'pry-byebug'
 gem 'simple_form'
 gem 'nested_form_fields'
-
+gem 'sequenced'
 gem 'popper_js', '~> 1.11.1'
 gem 'bootstrap', '4.0.0.alpha6'
 gem 'jquery-rails'
