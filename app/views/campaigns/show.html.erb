@@ -9,6 +9,32 @@
 <!--  <strong>Purpose:</strong>-->
   <%#= @campaign.purpose %>
 <!--</p>-->
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+
+    <th scope="col">comment</th>
+    <th scope="col">campaign_id</th>
+    <th scope="col">Compaing Sequential ID</th>
+    <th scope="col">user_id</th>
+    <th scope="col">User sequential_id</th>
+  </tr>
+  </thead>
+  <tbody>
+
+<% Comment.all.each do |comment| %>
+ <tr>
+    <td><%= comment.id %></td>
+    <td> <%= comment.comment %></td>
+    <td> <%= comment.campaign_id %></td>
+    <td> <%= comment.sequential_id %></td>
+    <td> <%= comment.user_id %></td>
+    <td> <%= comment.user_comment_number %></td>
+ </tr>
+<% end %>
+  </tbody>
+</table>
 
 <h2 class="todo_list_title"><%= @campaign.title %></h2>
 <p class="todo_list_sub_title"><%= @campaign.purpose %></p>
