@@ -12,7 +12,10 @@
 
 ActiveRecord::Schema.define(version: 2021_01_20_135624) do
 
-  create_table "campaigns", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "campaigns", force: :cascade do |t|
     t.string "title"
     t.text "purpose"
     t.integer "estimated_duration"
@@ -22,7 +25,7 @@ ActiveRecord::Schema.define(version: 2021_01_20_135624) do
     t.index ["user_id"], name: "index_campaigns_on_user_id"
   end
 
-  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "comments", force: :cascade do |t|
     t.string "name"
     t.text "comment"
     t.bigint "campaign_id"
@@ -35,14 +38,14 @@ ActiveRecord::Schema.define(version: 2021_01_20_135624) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "roles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "roles", force: :cascade do |t|
     t.string "name"
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "taggings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "taggings", force: :cascade do |t|
     t.bigint "tag_id"
     t.bigint "campaign_id"
     t.datetime "created_at", null: false
@@ -51,13 +54,13 @@ ActiveRecord::Schema.define(version: 2021_01_20_135624) do
     t.index ["tag_id"], name: "index_taggings_on_tag_id"
   end
 
-  create_table "tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "tags", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "todo_items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "todo_items", force: :cascade do |t|
     t.string "content"
     t.bigint "campaign_id"
     t.datetime "created_at", null: false
@@ -66,7 +69,7 @@ ActiveRecord::Schema.define(version: 2021_01_20_135624) do
     t.index ["campaign_id"], name: "index_todo_items_on_campaign_id"
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "name"
     t.bigint "role_id"
     t.datetime "created_at", null: false
